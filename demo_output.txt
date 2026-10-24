@@ -1,0 +1,46 @@
+=== BUILT-IN COMMANDS ===
+shell$ pwd
+/tmp/tmpdyet4yrf
+shell$ echo "Hello from Day 1"
+Hello from Day 1
+shell$ mkdir sample
+shell$ cd sample
+shell$ touch notes.txt
+shell$ ls
+notes.txt
+shell$ cat notes.txt
+shell$ cd ..
+shell$ rm sample/notes.txt
+shell$ rmdir sample
+
+=== FOREGROUND AND BACKGROUND JOBS ===
+shell$ sleep 0.1
+Foreground PID=861: sleep 0.1
+Process 861 finished (exit 0)
+shell$ sleep 2 &
+[1] PID=862 started in background
+shell$ jobs
+[1] Running PID=862 sleep 2
+[demo] SIGSTOP sent to PID 862
+shell$ jobs
+[1] Stopped PID=862 sleep 2
+shell$ bg 1
+[1] Continued PID=862
+shell$ fg 1
+Foreground: [1] PID=862 sleep 2
+Process 862 finished (exit 0)
+shell$ jobs
+[1] Done    PID=862 sleep 2
+
+=== ERROR HANDLING ===
+shell$ unknown_day1_command
+shell: command not found: unknown_day1_command
+shell$ cat missing.txt
+cat: [Errno 2] No such file or directory: 'missing.txt'
+shell$ fg 99
+shell: no such job: 99
+shell$ mkdir
+mkdir: usage: mkdir directory
+shell$ echo "unfinished
+shell: invalid input: No closing quotation
+shell$ exit

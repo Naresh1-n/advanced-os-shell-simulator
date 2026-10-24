@@ -1,0 +1,24 @@
+shell$ no_such_command
+shell: command not found: no_such_command
+shell$ cat absent.txt
+cat: [Errno 2] No such file or directory: 'absent.txt'
+shell$ cd missing_folder
+cd: [Errno 2] No such file or directory: 'missing_folder'
+shell$ mkdir
+mkdir: usage: mkdir directory
+shell$ rmdir
+rmdir: usage: rmdir directory
+shell$ rm
+rm: usage: rm filename
+shell$ touch
+touch: usage: touch filename
+shell$ kill abc
+kill: invalid literal for int() with base 10: 'abc'
+shell$ fg 99
+shell: no such job: 99
+shell$ bg 99
+shell: no such job: 99
+shell$ echo "unterminated
+shell: invalid input: No closing quotation
+shell$ &
+shell: missing command before &

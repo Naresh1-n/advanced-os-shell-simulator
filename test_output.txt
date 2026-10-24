@@ -1,0 +1,14 @@
+Advanced Shell Simulator | type exit to quit
+Built-ins: cd pwd exit echo clear ls cat mkdir rmdir rm touch kill jobs fg bg
+shell:day1_shell$ /mnt/data/day1_shell
+shell:day1_shell$ Hello from shell
+shell:day1_shell$ shell:day1_shell$ shell:demo$ shell:demo$ sample.txt
+shell:demo$ shell:demo$ shell:day1_shell$ rmdir: [Errno 39] Directory not empty: 'demo'
+shell:day1_shell$ shell: command not found: invalid_command
+shell:day1_shell$ cat: [Errno 2] No such file or directory: 'missing.txt'
+shell:day1_shell$ [1] PID=443 started in background
+shell:day1_shell$ [1] Running PID=443 sleep 1
+shell:day1_shell$ Foreground: [1] PID=443 sleep 1
+Process 443 finished (exit 0)
+shell:day1_shell$ [1] Done    PID=443 sleep 1
+shell:day1_shell$ Shell closed

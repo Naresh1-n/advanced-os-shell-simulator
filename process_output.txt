@@ -1,0 +1,19 @@
+shell$ sleep 0.2
+Foreground PID=480: sleep 0.2
+Process 480 finished (exit 0)
+shell$ sleep 4 &
+[1] PID=481 started in background
+shell$ jobs
+[1] Running PID=481 sleep 4
+External test action: sent SIGSTOP to background process group
+shell$ jobs
+[1] Stopped PID=481 sleep 4
+shell$ bg 1
+[1] Continued PID=481
+shell$ jobs
+[1] Running PID=481 sleep 4
+shell$ fg 1
+Foreground: [1] PID=481 sleep 4
+Process 481 finished (exit 0)
+shell$ jobs
+[1] Done    PID=481 sleep 4

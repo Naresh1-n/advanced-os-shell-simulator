@@ -1,0 +1,16 @@
+shell$ pwd
+/tmp/tmpfjb6r9oh
+shell$ echo "Hello from the OS shell"
+Hello from the OS shell
+shell$ mkdir lab
+shell$ cd lab
+shell$ touch notes.txt
+shell$ ls
+notes.txt
+shell$ cat notes.txt
+shell$ cd ..
+shell$ rm lab/notes.txt
+shell$ rmdir lab
+shell$ ls
+shell$ echo Finished file commands
+Finished file commands

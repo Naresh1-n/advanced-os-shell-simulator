@@ -1,0 +1,8 @@
+shell$ sleep 10 &
+[2] PID=482 started in background
+shell$ kill 482
+Sent SIGTERM to PID 482
+shell$ jobs
+[2] Done (exit -15) sleep 10
+[1] Done    PID=481 sleep 4
+[2] Done    PID=482 sleep 10
