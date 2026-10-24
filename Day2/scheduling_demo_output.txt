@@ -1,0 +1,88 @@
+Welcome to myshell. Type 'help' for a list of commands.
+myshell:/mnt/data/Residency_Day2_Submission$ Loaded rr demonstration workload. Use sched list to inspect it.
+myshell:/mnt/data/Residency_Day2_Submission$ P1: burst=5, priority=3, arrival=0
+P2: burst=3, priority=2, arrival=0
+P3: burst=2, priority=1, arrival=2
+myshell:/mnt/data/Residency_Day2_Submission$ === ROUND ROBIN ===
+Time quantum: 2 simulated units
+t= 0 ARRIVE P1 burst=5 priority=3
+t= 0 ARRIVE P2 burst=3 priority=2
+t= 0 DISPATCH P1 quantum=2
+t= 0-1  RUN P1 remaining 5->4
+t= 1-2  RUN P1 remaining 4->3
+t= 2 ARRIVE P3 burst=2 priority=1
+t= 2 QUANTUM EXPIRED P1; move to back of queue
+t= 2 DISPATCH P2 quantum=2
+t= 2-3  RUN P2 remaining 3->2
+t= 3-4  RUN P2 remaining 2->1
+t= 4 QUANTUM EXPIRED P2; move to back of queue
+t= 4 DISPATCH P3 quantum=2
+t= 4-5  RUN P3 remaining 2->1
+t= 5-6  RUN P3 remaining 1->0
+t= 6 FINISH P3
+t= 6 DISPATCH P1 quantum=2
+t= 6-7  RUN P1 remaining 3->2
+t= 7-8  RUN P1 remaining 2->1
+t= 8 QUANTUM EXPIRED P1; move to back of queue
+t= 8 DISPATCH P2 quantum=2
+t= 8-9  RUN P2 remaining 1->0
+t= 9 FINISH P2
+t= 9 DISPATCH P1 quantum=2
+t= 9-10 RUN P1 remaining 1->0
+t=10 FINISH P1
+
+GANTT TIMELINE (simulated units)
+0-1:P1 | 1-2:P1 | 2-3:P2 | 3-4:P2 | 4-5:P3 | 5-6:P3 | 6-7:P1 | 7-8:P1 | 8-9:P2 | 9-10:P1
+
+PROCESS METRICS
+Name     Arrive  Burst   Prio  Finish   Wait   Turn   Resp
+P1            0      5      3      10      5     10      0
+P2            0      3      2       9      6      9      2
+P3            2      2      1       6      2      4      2
+AVERAGES: waiting=4.33, turnaround=7.67, response=1.33 simulated units
+myshell:/mnt/data/Residency_Day2_Submission$ Simulated queue cleared.
+myshell:/mnt/data/Residency_Day2_Submission$ Loaded priority demonstration workload. Use sched list to inspect it.
+myshell:/mnt/data/Residency_Day2_Submission$ P1: burst=6, priority=3, arrival=0
+P2: burst=3, priority=1, arrival=2
+P3: burst=2, priority=1, arrival=2
+P4: burst=2, priority=2, arrival=4
+myshell:/mnt/data/Residency_Day2_Submission$ === PREEMPTIVE PRIORITY ===
+t= 0 ARRIVE P1 burst=6 priority=3
+t= 0 DISPATCH P1 priority=3
+t= 0-1  RUN P1 remaining 6->5
+t= 1-2  RUN P1 remaining 5->4
+t= 2 ARRIVE P2 burst=3 priority=1
+t= 2 ARRIVE P3 burst=2 priority=1
+t= 2 PREEMPT P1 -> P2 (higher priority)
+t= 2 DISPATCH P2 priority=1
+t= 2-3  RUN P2 remaining 3->2
+t= 3-4  RUN P2 remaining 2->1
+t= 4 ARRIVE P4 burst=2 priority=2
+t= 4-5  RUN P2 remaining 1->0
+t= 5 FINISH P2
+t= 5 DISPATCH P3 priority=1
+t= 5-6  RUN P3 remaining 2->1
+t= 6-7  RUN P3 remaining 1->0
+t= 7 FINISH P3
+t= 7 DISPATCH P4 priority=2
+t= 7-8  RUN P4 remaining 2->1
+t= 8-9  RUN P4 remaining 1->0
+t= 9 FINISH P4
+t= 9 DISPATCH P1 priority=3
+t= 9-10 RUN P1 remaining 4->3
+t=10-11 RUN P1 remaining 3->2
+t=11-12 RUN P1 remaining 2->1
+t=12-13 RUN P1 remaining 1->0
+t=13 FINISH P1
+
+GANTT TIMELINE (simulated units)
+0-1:P1 | 1-2:P1 | 2-3:P2 | 3-4:P2 | 4-5:P2 | 5-6:P3 | 6-7:P3 | 7-8:P4 | 8-9:P4 | 9-10:P1 | 10-11:P1 | 11-12:P1 | 12-13:P1
+
+PROCESS METRICS
+Name     Arrive  Burst   Prio  Finish   Wait   Turn   Resp
+P1            0      6      3      13      7     13      0
+P2            2      3      1       5      0      3      0
+P3            2      2      1       7      3      5      3
+P4            4      2      2       9      3      5      3
+AVERAGES: waiting=3.25, turnaround=6.50, response=1.50 simulated units
+myshell:/mnt/data/Residency_Day2_Submission$ Goodbye.
